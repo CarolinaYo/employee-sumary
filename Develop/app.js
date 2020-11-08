@@ -11,78 +11,116 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 //code to use inquirer to gather information about the development team members
+// Write code to use inquirer to gather information about the development team members,
+// and to create objects for each team member (using the correct classes as blueprints!)
 
 const managerQuestions = [
     {
-        type: "input",
-        name: "name",
-        message: "Enter your name",
-        default: "CarolinaYo",
-        
       type: "input",
-      name: "name",
-      message: "Enter your name",
+      name: "mgrName",
+      message: "Welcome to team builder app.  Please enter manager name: ",
       default: "CarolinaYo",
     },
     {
       type: "input",
-      name: "id",
-      message: "Enter the name of your GitHub repository"
-      default: "readme-gen",
+      name: "mgrId",
+      message: "Enter employee ID: ",
+      default: "007",
     },
     {
       type: "input",
-      name: "email",
-      message: "Please enter your e-mail address.",
+      name: "mgrEmail",
+      message: "Enter manager E-mail: ",
+      default: "manager@team.bld"
     }
-]
-const egineerQuestions =[
     {
-      type: "input",
-      name: "title",
-      message: "What is the title of your project?",
-      default: "Project Title",
-    },
-    {
-      type: "input",
-      name: "description",
-      message: "Please describe your project.",
-      default: "Project Description.",
-    },
-    {
-      type: "input",
-      name: "installation",
-      message: "Please describe the steps required to install your project.",
-    },
-    {
-      type: "input",
-      name: "usage",
-      message: "Please provide instructions and examples.",
-    },
-    {
-      type: "input",
-      name: "contributing",
-      message: "Please provide guideline for others to contribute.",
-    },
-    {
-      type: "input",
-      name: "test",
-      message: "Please provide examples on how to run your project.",
-    },
-    {
-      type: "list",
-      name: "license",
-      message: "Please choose a license.",
-      choices: ["Apache License 2.0", "GNU GPLv3", "MIT License"],
-    },
-  ];
+        type: "input",
+        name: "mgrOffice",
+        message: "Enter manager office number: ",
+        default: "100"
+      }
+];
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+const addMemberOption = [
+
+    {
+        type: "confirm",
+        name: "addMember",
+        message: "Would you like to add another team member?",
+    },
+    {
+        type: "list",
+        name: "teamRole",
+        message: "Please choose team member to be added: ",
+        choices: ["Engineer", "Intern"]
+    },
+    
+];
+
+const egineerQuestions =[
+
+    {
+        type: "input",
+        name: "engName",
+        message: "Enter team member's name: ",
+        default: "Jane Joy",
+        },
+        {
+        type: "input",
+        name: "engId",
+        message: "Enter employee ID: ",
+        default: "000",
+        },
+        {
+        type: "input",
+        name: "engEmail",
+        message: "Enter E-mail: ",
+        default: "engineer@team.bld"
+        },      
+        {
+        type: "input",
+        name: "github",
+        message: "Enter github username: ",
+        default: "JaneJoy",
+    },
+];
+
+const internQuestions = [
+
+    {
+      type: "input",
+      name: "intName",
+      message: "Enter team member's name: ",
+      default: "Julie Mae",
+    },
+    {
+      type: "input",
+      name: "intId",
+      message: "Enter employee ID: ",
+      default: "000"
+    },
+    {
+      type: "input",
+      name: "intEmail",
+      message: "Enter E-mail: ",
+      default: "intern@team.bld",
+    },
+    {
+      type: "input",
+      name: "school",
+      message: "Enter intern school name: ",
+      default: "University of Washington",
+    }
+];
+
+
+
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
+
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
