@@ -10,6 +10,72 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+//code to use inquirer to gather information about the development team members
+
+const managerQuestions = [
+    {
+        type: "input",
+        name: "name",
+        message: "Enter your name",
+        default: "CarolinaYo",
+        
+      type: "input",
+      name: "name",
+      message: "Enter your name",
+      default: "CarolinaYo",
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "Enter the name of your GitHub repository"
+      default: "readme-gen",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "Please enter your e-mail address.",
+    }
+]
+const egineerQuestions =[
+    {
+      type: "input",
+      name: "title",
+      message: "What is the title of your project?",
+      default: "Project Title",
+    },
+    {
+      type: "input",
+      name: "description",
+      message: "Please describe your project.",
+      default: "Project Description.",
+    },
+    {
+      type: "input",
+      name: "installation",
+      message: "Please describe the steps required to install your project.",
+    },
+    {
+      type: "input",
+      name: "usage",
+      message: "Please provide instructions and examples.",
+    },
+    {
+      type: "input",
+      name: "contributing",
+      message: "Please provide guideline for others to contribute.",
+    },
+    {
+      type: "input",
+      name: "test",
+      message: "Please provide examples on how to run your project.",
+    },
+    {
+      type: "list",
+      name: "license",
+      message: "Please choose a license.",
+      choices: ["Apache License 2.0", "GNU GPLv3", "MIT License"],
+    },
+  ];
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -33,3 +99,18 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+
+// // function to initialize program
+// function init() {
+//     inquirer.prompt(questions).then((answer) =>
+//       fs.writeFile("sampleREADME.md", generateMarkdown(answer), (err) => {
+//         if (err) {
+//           return console.log(err);
+//         }
+//         console.log("Success!");
+//       })
+//     );
+//   }
+//   // function call to initialize program
+//   init();
