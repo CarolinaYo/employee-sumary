@@ -57,7 +57,7 @@ const addMemberOption = [
     
 ];
 
-const egineerQuestions =[
+const engineerQuestions =[
 
     {
         type: "input",
@@ -113,14 +113,31 @@ const internQuestions = [
     }
 ];
 
-
-
+let teamMembers = [];
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+function managerInfo() {
+    let mgrAnswer = inquirer.prompt(managerQuestions);
+    let newManager = new Manager(mgrAnswer.mgrname, mgrAnswer.mgrID, mgrAnswer.mgrEmail, mgrAnswer.mgrOffice);
+    teamMembers.push(newManager);
+}
+
+//need switch case to ask if they want to add new employee, if yes, need another switch case to ask if it is engineer or intern.
 
 
+function engineerInfo() {
+    let engAnswer = inquirer.prompt(engineerQuestions);
+    let newEngineer = new Engineer(engAnswer.engname, engAnswer.engID, engAnswer.engEmail, engAnswer.github);
+    teamMembers.push(newEngineer);
+}
+
+function internInfo() {
+    let intAnswer = inquirer.prompt(internQuestions);
+    let newIntern = new Engineer(intAnswer.intname, intAnswer.intID, intAnswer.intEmail, intAnswer.school);
+    teamMembers.push(newIntern);
+}
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
