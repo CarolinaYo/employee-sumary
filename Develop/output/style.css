@@ -1,0 +1,42 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-bottom: 75px;
+}
+
+.team-heading {
+    background-color: #283747;
+    color: white;
+}
+
+.employee-card {
+    max-width: 350px;
+    min-width: 255px;
+    margin-right: 12px;
+    margin-bottom: 20px;
+    color: whitesmoke;
+}
+
+.card-header {
+    background-color: #154360;
+}
+.card-body {
+    background-color: #A9CCE3;
+}
+
+.list-group {
+    color: black;
+}
+
+@media only screen and (max-width: 768px) {
+    .team-area {
+        flex-direction: column;
+      
+    }
+  } 
+
+  @media only screen and (min-width: 1200px) {
+    .team-area {
+        max-width: 100%;
+      
+    }
+  } 
