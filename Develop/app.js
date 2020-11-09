@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+var keepAddingTeams = true;
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -115,55 +116,91 @@ const internQuestions = [
 let teamMembers = [];
 
 function managerInfo() {
-  let mgrAnswer = inquirer.prompt(managerQuestions);
-  let newManager = new Manager(
-    mgrAnswer.mgrname,
-    mgrAnswer.mgrID,
-    mgrAnswer.mgrEmail,
-    mgrAnswer.mgrOffice
-  );
-  teamMembers.push(newManager);
+  inquirer
+    .prompt(managerQuestions)
+    .then(function(answer) {
+      let newManager = new Manager(
+          answer.mgrName,
+          answer.mgrId,
+          answer.mgrEmail,
+          answer.mgrOffice
+        );
+        teamMembers.push(newManager);
+        addTeam();
+    });
+
 }
 
 //need switch case to ask if they want to add new employee, if yes, need another switch case to ask if it is engineer or intern.
-function addTeam() {
-  let addNewMember = inquirer.prompt(addMemberOption);
-  switch (addNewMember.addMember) {
-    case true:
-        createTeamMember()
-      
-    case false:
-      console.log(
-        "No additional team added.  Your team member page is created."
-      );
-      return;
-    }
-  }
 
+function addTeam() {
+  inquirer.prompt(addMemberOption).then(function (response) {
+    if (response.addMember) {
+      createTeamMember();
+    } else {
+      fs.writeFile(outputPath, render(teamMembers), (err) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Success!");
+      });
+    }
+  });
+}
 
 function createTeamMember() {
-    let newMemberRole = inquirer.prompt(memberRole);
-    switch (newMemberRole.teamRole) {
-      case "Engineer":
-        let engAnswer = inquirer.prompt(engineerQuestions);
-        let newEngineer = new Engineer(
-          engAnswer.engname,
-          engAnswer.engID,
-          engAnswer.engEmail,
-          engAnswer.github
+  let employee;
+
+  inquirer.prompt(memberRole).then(function (response) {
+    if (response.teamRole.toUpperCase() === "ENGINEER") {
+      inquirer.prompt(engineerQuestions).then(function (answer) {
+        employee = new Engineer(
+          answer.engName,
+          answer.engId,
+          answer.engEmail,
+          answer.github
         );
-        teamMembers.push(newEngineer);
-      case "Intern":
-        let intAnswer = inquirer.prompt(internQuestions);
-        let newIntern = new Intern(
-          intAnswer.intname,
-          intAnswer.intID,
-          intAnswer.intEmail,
-          intAnswer.school
+        teamMembers.push(employee);
+        addTeam();
+      });
+    } else {
+      inquirer.prompt(internQuestions).then(function (answer) {
+        employee = new Intern(
+          answer.intName,
+          answer.intId,
+          answer.intEmail,
+          answer.school
         );
-        teamMembers.push(newIntern);
+        teamMembers.push(employee);
+        addTeam();
+      });
     }
+  });
 }
+
+// function createTeamMember() {
+//     let newMemberRole = inquirer.prompt(memberRole);
+//     switch (newMemberRole.teamRole) {
+//       case "Engineer":
+//         let engAnswer = inquirer.prompt(engineerQuestions);
+//         let newEngineer = new Engineer(
+//           engAnswer.engname,
+//           engAnswer.engID,
+//           engAnswer.engEmail,
+//           engAnswer.github
+//         );
+//         teamMembers.push(newEngineer);
+//       case "Intern":
+//         let intAnswer = inquirer.prompt(internQuestions);
+//         let newIntern = new Intern(
+//           intAnswer.intname,
+//           intAnswer.intID,
+//           intAnswer.intEmail,
+//           intAnswer.school
+//         );
+//         teamMembers.push(newIntern);
+//     }
+// }
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -171,23 +208,17 @@ function createTeamMember() {
 
 // function to initialize program
 
-    // function init() {
+async function init() {
+  managerInfo();
+  
+ 
+  
 
-    // managerInfo;
-    // addTeam
-    //.then ((createTeam) => 
-    // fs.writeFile("outputpath???", render????, (err) => {
-        //         if (err) {
-        //           return console.log(err);
-        //         }
-        //         console.log("Success!");
-        //       })
-    // )
-
-    
+  
+}
 
 //   function call to initialize program
-        //   init();
+init();
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
