@@ -10,6 +10,10 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+
+// Write code to use inquirer to gather information about the development team members,
+// and to create objects for each team member (using the correct classes as blueprints!)
+
 const managerQuestions = [
   {
     type: "input",
@@ -126,72 +130,61 @@ function addTeam() {
   let addNewMember = inquirer.prompt(addMemberOption);
   switch (addNewMember.addMember) {
     case true:
-      function createTeamMember() {
-        let newMemberRole = inquirer.prompt(memberRole);
-        switch (newMemberRole.teamRole) {
-          case "Engineer":
-            let engAnswer = inquirer.prompt(engineerQuestions);
-            let newEngineer = new Engineer(
-              engAnswer.engname,
-              engAnswer.engID,
-              engAnswer.engEmail,
-              engAnswer.github
-            );
-            teamMembers.push(newEngineer);
-          case "Intern":
-            let intAnswer = inquirer.prompt(internQuestions);
-            let newIntern = new Engineer(
-              intAnswer.intname,
-              intAnswer.intID,
-              intAnswer.intEmail,
-              intAnswer.school
-            );
-            teamMembers.push(newIntern);
-        }
-      }
-
+        createTeamMember()
+      
     case false:
       console.log(
         "No additional team added.  Your team member page is created."
       );
       return;
+    }
   }
+
+
+function createTeamMember() {
+    let newMemberRole = inquirer.prompt(memberRole);
+    switch (newMemberRole.teamRole) {
+      case "Engineer":
+        let engAnswer = inquirer.prompt(engineerQuestions);
+        let newEngineer = new Engineer(
+          engAnswer.engname,
+          engAnswer.engID,
+          engAnswer.engEmail,
+          engAnswer.github
+        );
+        teamMembers.push(newEngineer);
+      case "Intern":
+        let intAnswer = inquirer.prompt(internQuestions);
+        let newIntern = new Intern(
+          intAnswer.intname,
+          intAnswer.intID,
+          intAnswer.intEmail,
+          intAnswer.school
+        );
+        teamMembers.push(newIntern);
+    }
 }
 
-// function engineerInfo() {
-//     let engAnswer = inquirer.prompt(engineerQuestions);
-//     let newEngineer = new Engineer(engAnswer.engname, engAnswer.engID, engAnswer.engEmail, engAnswer.github);
-//     teamMembers.push(newEngineer);
-// }
+// After the user has input all employees desired, call the `render` function (required
+// above) and pass in an array containing all employee objects; the `render` function will
+// generate and return a block of HTML including templated divs for each employee!
 
-// function internInfo() {
-//     let intAnswer = inquirer.prompt(internQuestions);
-//     let newIntern = new Engineer(intAnswer.intname, intAnswer.intID, intAnswer.intEmail, intAnswer.school);
-//     teamMembers.push(newIntern);
-// }
-
-
-
-//code to use inquirer to gather information about the development team members
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
 // function to initialize program
 
     // function init() {
 
     // managerInfo;
-    // addTeam;
-    
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-    // fs.writeFile("????????", render????, (err) => {
+    // addTeam
+    //.then ((createTeam) => 
+    // fs.writeFile("outputpath???", render????, (err) => {
         //         if (err) {
         //           return console.log(err);
         //         }
         //         console.log("Success!");
         //       })
+    // )
+
+    
 
 //   function call to initialize program
         //   init();
