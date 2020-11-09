@@ -1,6 +1,6 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-bottom: 75px;
+
 }
 
 .team-heading {
@@ -30,13 +30,6 @@ body {
 @media only screen and (max-width: 768px) {
     .team-area {
         flex-direction: column;
-      
-    }
-  } 
-
-  @media only screen and (min-width: 1200px) {
-    .team-area {
-        max-width: 100%;
       
     }
   } 
