@@ -2,7 +2,7 @@
 
 ## Description 
 
-This application help user generates an employee sumary of their team member in a form of html page.   Using command-line application that runs with Node.js, guides user through prompts of questions and options, Based on user's input and selected options, team.html dynamically generated. Use can enter as many members desired.
+This application help user generates an employee summary of their team member in a form of html page.   Using command-line application that runs with Node.js, guides user through prompts of questions and options, Based on user's input and selected options, team.html dynamically generated. Use can enter as many members desired.
 
 ## Installation
 ### Steps required:
@@ -18,7 +18,7 @@ In the terminal mode, user must first run __npm install__ to have its package de
 * ![sample questions](Assets/sample-questions.PNG)
 * Once all questions are answered and no additional team added, then a team.html file is generated with the following preview:
 * ![team.html preview](Assets/team-page.PNG)
-* Example Employee Sumary page: 
+* Example Employee Summary page path: /Develop/output/team.html
 
 
 ## License
@@ -26,5 +26,4 @@ In the terminal mode, user must first run __npm install__ to have its package de
 
 ## MAINTAINER 
 This is an individual assignment created by Carolina Yoedhana.
-* GitHub Link: https://github.com/CarolinaYo/employee-sumary.git
-
+* GitHub Link: git@github.com:CarolinaYo/employee-sumary.git
