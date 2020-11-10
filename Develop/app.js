@@ -114,21 +114,17 @@ const internQuestions = [
 let teamMembers = [];
 
 function managerInfo() {
-  inquirer
-    .prompt(managerQuestions)
-    .then(function(answer) {
-      let newManager = new Manager(
-          answer.mgrName,
-          answer.mgrId,
-          answer.mgrEmail,
-          answer.mgrOffice
-        );
-        teamMembers.push(newManager);
-        addTeam();
-    });
-
+  inquirer.prompt(managerQuestions).then(function (answer) {
+    let newManager = new Manager(
+      answer.mgrName,
+      answer.mgrId,
+      answer.mgrEmail,
+      answer.mgrOffice
+    );
+    teamMembers.push(newManager);
+    addTeam();
+  });
 }
-
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -143,12 +139,11 @@ function addTeam() {
         if (err) {
           return console.log(err);
         }
-        console.log("Your employee sumary has been created in team.html");
+        console.log("Your employee summary has been created in team.html");
       });
     }
   });
 }
-
 
 function createTeamMember() {
   let employee;
@@ -183,7 +178,7 @@ function createTeamMember() {
 // function to initialize program
 function init() {
   managerInfo();
-  }
+}
 
 // function call to initialize program
 init();
