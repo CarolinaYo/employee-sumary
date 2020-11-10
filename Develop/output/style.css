@@ -8,12 +8,15 @@ body {
     color: white;
 }
 
+  
 .employee-card {
+
     max-width: 350px;
     min-width: 255px;
     margin-right: 12px;
     margin-bottom: 20px;
     color: whitesmoke;
+    flex-basis: 30%;
 }
 
 .card-header {
