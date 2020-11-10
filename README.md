@@ -2,7 +2,7 @@
 
 ## Description 
 
-This application help user generates an employee summary of their team member in a form of html page.   Using command-line application that runs with Node.js, guides user through prompts of questions and options, Based on user's input and selected options, team.html dynamically generated. Use can enter as many members desired.
+This application help user generates an employee summary of their team member in a form of html page.   Using command-line application that runs with Node.js, guides user through prompts of questions and options, Based on user's input and selected options, team.html dynamically generated. User can enter as many members desired.
 
 ## Installation
 ### Steps required:
