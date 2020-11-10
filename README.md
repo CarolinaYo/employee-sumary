@@ -1,4 +1,4 @@
-# Employee-summary Generator
+# Employee Summary Generator
 
 ## Description 
 
@@ -9,16 +9,16 @@ This application help user generates an employee summary of their team member in
 In the terminal mode, user must first run __npm install__ to have its package dependecies. Then, user can run the app.js file in Node environment by running __node app.js__.
 
 ## Usage 
-### Demo of README generator:
+### Demo of Employee Summary Generator:
 ![demo](Assets/demo.gif)
-* Link to preview demo: https://drive.google.com/file/d/1PGfOTLEUUuADs2q2urWS3ehXIFxUvn9A/view?usp=sharing
+* Link to preview demo: https://drive.google.com/file/d/1NcHqB_Dkfb579NC9xfOtkxRR5Cmb6BCc/view
 
 ### Still images preview:
 * User is presented with a series of questions such as Name, ID, E-mail and Role-specific property (office number, GitHub profile, or name of school)
 * ![sample questions](Assets/sample-questions.PNG)
 * Once all questions are answered and no additional team added, then a team.html file is generated with the following preview:
 * ![team.html preview](Assets/team-page.PNG)
-* Example Employee Summary page path: /Develop/output/team.html
+* The example of Employee Summary page can be access in this path: /Develop/output/team.html
 
 
 ## License
@@ -26,4 +26,4 @@ In the terminal mode, user must first run __npm install__ to have its package de
 
 ## MAINTAINER 
 This is an individual assignment created by Carolina Yoedhana.
-* GitHub Link: git@github.com:CarolinaYo/employee-sumary.git
+* GitHub Link: https://github.com/CarolinaYo/employee-sumary.git
